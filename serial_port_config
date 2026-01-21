@@ -1,0 +1,21 @@
+// Name the Router and Set security
+hostname R1
+enable secret cisco
+line console 0
+password ccna
+login
+end
+
+
+//Configure Serial port and set ip address
+int s2/0
+ip address 192.168.0.1 255.255.255.0
+no shutdown
+
+// Identify which of the Routers serial ends is DCE and DTE (Digital Communication Equipment and Digital Terminal Equipment)
+sh controllers s2/0
+
+
+//Configure the clock speed of the Router with the end set to DCE
+int s2/0
+clock rate <rate_number>
